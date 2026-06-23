@@ -10,6 +10,7 @@ LOG_DIR = str(BASE_DIR / "logs")
 REPORT_DIR = str(BASE_DIR / "inspect_report")
 
 LLM_MODEL = "openai/gpt-5.4-nano"
+JUDGE_MODEL = "openai/gpt-5.4-mini-2026-03-17"
 
 pizza_eval = [
     Sample(
@@ -58,7 +59,7 @@ task = Task(
 
     solver=generate(),
 
-    scorer=model_graded_qa(partial_credit=True),
+    scorer=model_graded_qa(partial_credit=True, model=JUDGE_MODEL),
 
     name="eval_with_easy_and_hard_fuzzy_questions",
 )

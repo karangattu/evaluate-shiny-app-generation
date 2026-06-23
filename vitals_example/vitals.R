@@ -5,6 +5,7 @@ library(tibble)
 vitals::vitals_log_dir_set("logs")
 
 llm_model <- chat_openai(model = "gpt-5.4-nano")
+judge_model <- chat_openai(model = "gpt-5.4-mini-2026-03-17")
 
 pizza_eval <- tibble(
   input = c(
@@ -57,7 +58,7 @@ task <- Task$new(
   ),
 
   scorer = model_graded_qa(
-    scorer_chat = llm_model,
+    scorer_chat = judge_model,
     partial_credit = TRUE
   ),
 
