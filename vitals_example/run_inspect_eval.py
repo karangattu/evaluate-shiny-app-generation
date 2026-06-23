@@ -3,7 +3,6 @@ from inspect_ai.dataset import Sample
 from inspect_ai.log import bundle_log_dir
 from inspect_ai.scorer import model_graded_qa
 from inspect_ai.solver import generate
-from inspect_ai.analysis import samples_df, evals_df
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
